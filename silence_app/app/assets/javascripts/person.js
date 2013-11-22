@@ -1,15 +1,20 @@
 function Person(options){
   this.gender = options.gender;
-  this.hasLotion = false;
   this.isLotioned = true;
-  this.lotion = {};
+  this.lotion = null;
 }
 
 Person.prototype.take = function(lotion) {
   this.lotion = lotion;
-  this.hasLotion = true;
 };
 
+Person.prototype.hasLotion = function() {
+  if (this.lotion) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 Person.prototype.applyLotion = function() {
   this.lotion.squeeze();
@@ -17,6 +22,6 @@ Person.prototype.applyLotion = function() {
 };
 
 Person.prototype.place = function(lotion, basket) {
-  this.hasLotion = false;
   basket.contents.push(lotion);
+  this.lotion = null;
 };

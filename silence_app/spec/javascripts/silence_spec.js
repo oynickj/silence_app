@@ -8,7 +8,7 @@ describe("person", function(){
   it("takes the lotion", function(){
     person.take(lotion);
 
-    expect(person.hasLotion).toBe(true);
+    expect(person.hasLotion()).toBe(true);
   });
 
   it("rubs the lotion on its skin", function(){
@@ -23,7 +23,7 @@ describe("person", function(){
   it("places the lotion in the basket", function(){
     person.place(lotion, basket);
 
-    expect(person.hasLotion).toBe(false);
+    expect(person.hasLotion()).toBe(false);
     expect(basket.contains(lotion)).toBe(true);
   });
 
